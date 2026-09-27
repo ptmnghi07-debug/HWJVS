@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Photo Gallery</title>
+  <style>
+    body {
+      margin: 2%;
+      border: 1px solid black;
+      background-color: #b3cde0;
+      text-align: center;
+    }
+
+    #image {
+      line-height: 650px;
+      width: 575px;
+      height: 650px;
+      border: 5px solid black;
+      margin: 0 auto 20px auto;
+      text-align: center;
+      background-color: #8e9aaf;
+      background-repeat: no-repeat;
+      color: #ffffff;
+      font-size: 150%;
+      background-size: cover;
+    }
+
+    img {
+      width: 20%;
+      margin: 1%;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="image">
+    Hover over an image below to display here.
+  </div>
+
+  <img class="preview" alt="Styling with a colorful image" src="https://picsum.photos/id/10/500/500" onmouseover="upDate(this)" onmouseout="unDo()">
+  <img class="preview" alt="Image of a beautiful forest" src="https://picsum.photos/id/15/500/500" onmouseover="upDate(this)" onmouseout="unDo()">
+  <img class="preview" alt="Snowy mountains view" src="https://picsum.photos/id/29/500/500" onmouseover="upDate(this)" onmouseout="unDo()">
+
+  <script>
+    function upDate(previewPic) {
+      console.log("Di chuột vào ảnh:", previewPic.alt, previewPic.src);
+      let imageDiv = document.getElementById("image");
+      imageDiv.innerHTML = previewPic.alt;
+      imageDiv.style.backgroundImage = "url('" + previewPic.src + "')";
+    }
+
+    function unDo() {
+      let imageDiv = document.getElementById("image");
+      imageDiv.style.backgroundImage = "url('')";
+      imageDiv.innerHTML = "Hover over an image below to display here.";
+    }
+  </script>
+</body>
+</html>
